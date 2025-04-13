@@ -1,0 +1,432 @@
+/* Reset e Variáveis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #f5f5f5; /* Fundo principal (light) */
+  --text-color: #333; /* Texto principal (light) */
+  --primary-color: #8b5cf6; /* Cor primária (botões, links) */
+  --secondary-color: #10b981; /* Cor secundária (detalhes) */
+  --card-bg: rgba(255, 255, 255, 0.8); /* Fundo dos cards (light) */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra (light) */
+  --hero-bg: linear-gradient(135deg, #8b5cf6, #10b981); /* Fundo do hero (light) */
+  --button-bg: #fff; /* Fundo do botão CTA (light) */
+  --button-text: #8b5cf6; /* Texto do botão CTA (light) */
+  --footer-bg: rgba(255, 255, 255, 0.8); /* Fundo do footer (light) */
+  --modal-bg: rgba(255, 255, 255, 0.95); /* Fundo do modal (light) */
+  --modal-text: #333; /* Texto do modal (light) */
+  --error-color: #ef4444; /* Cor para erros */
+  --success-color: #10b981; /* Cor para sucesso */
+  --highlight-color: #ff6b6b; /* Cor para destaque dos projetos */
+}
+
+body.dark {
+  --bg-color: #1a1a1a; /* Fundo principal (dark) */
+  --text-color: #e5e5e5; /* Texto principal (dark) */
+  --primary-color: #a78bfa; /* Cor primária ajustada (dark) */
+  --secondary-color: #34d399; /* Cor secundária ajustada (dark) */
+  --card-bg: rgba(30, 30, 30, 0.8); /* Fundo dos cards (dark) */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra (dark) */
+  --hero-bg: linear-gradient(135deg, #a78bfa, #34d399); /* Fundo do hero (dark) */
+  --button-bg: #333; /* Fundo do botão CTA (dark) */
+  --button-text: #e5e5e5; /* Texto do botão CTA (dark) */
+  --footer-bg: rgba(30, 30, 30, 0.8); /* Fundo do footer (dark) */
+  --modal-bg: rgba(30, 30, 30, 0.95); /* Fundo do modal (dark) */
+  --modal-text: #e5e5e5; /* Texto do modal (dark) */
+  --highlight-color: #ff8787; /* Cor para destaque dos projetos (dark) */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links .highlight-link {
+  color: var(--highlight-color);
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-links .highlight-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--highlight-color);
+  transition: transform 0.3s;
+}
+
+.nav-links .highlight-link:hover::after {
+  transform: scaleX(1.2);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--hero-bg);
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--button-bg);
+  color: var(--button-text);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.projects-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--highlight-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  animation: pulse 2s infinite, fadeInUp 1s ease-out 0.6s backwards;
+}
+
+.projects-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: #e55a5a;
+}
+
+/* Sobre */
+.sobre {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.sobre h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Contato */
+.contato {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contato h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 500;
+  text-align: left;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form button {
+  padding: 0.8rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, opacity 0.3s;
+  position: relative;
+}
+
+form button:hover {
+  background: var(--secondary-color);
+}
+
+form button.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+form button.loading::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  position: relative;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: var(--primary-color);
+}
+
+.modal-content.error p {
+  color: var(--error-color);
+}
+
+.modal-content.success p {
+  color: var(--success-color);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--footer-bg);
+  box-shadow: var(--shadow);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .sobre-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .projects-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site moderno 2025 - Desenvolvido com design futurista e interatividade.">
+  <meta name="keywords" content="web design, 2025, desenvolvedor, portfólio">
+  <meta property="og:title" content="Meu Site 2025">
+  <meta property="og:description" content="Explore um site moderno com design futurista.">
+  <meta property="og:image" content="/images/preview.jpg">
+  <title>NextSite 2025</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=SUA_CHAVE_DO_SITE"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">NextSite 2025</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="projetos.html" class="highlight-link">Projetos</a></li>
+      </ul>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Explore o Amanhã Hoje</h1>
+      <p>Um site inovador projetado para 2025, com design futurista e tecnologia de última geração.</p>
+      <div class="hero-buttons">
+        <a href="#contato" class="cta-button">Conecte-se Agora</a>
+        <a href="projetos.html" class="projects-button">Veja Meus Projetos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="sobre" class="sobre">
+    <h2>Quem Sou Eu</h2>
+    <p>Sou um criador apaixonado por transformar ideias em experiências digitais únicas. Este site é a prova do que posso fazer com HTML, CSS e JavaScript puros.</p>
+    <div class="sobre-grid">
+      <div class="card" data-animate>
+        <h3>Visual Incrível</h3>
+        <p>Layouts elegantes e adaptáveis para qualquer dispositivo.</p>
+      </div>
+      <div class="card" data-animate>
+        <h3>Velocidade Máxima</h3>
+        <p>Carregamento ultrarrápido e eficiência garantida.</p>
+      </div>
+      <div class="card" data-animate>
+        <h3>Experiência Viva</h3>
+        <p>Animações fluidas e interações que encantam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato Section -->
+  <section id="contato" class="contato">
+    <h2>Entre em Contato</h2>
+    <form id="contato-form">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required>
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+      <button type="submit" id="submit-button">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Modal para Feedback -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close" class="modal-close">×</span>
+      <p id="modal-message"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Meu Site. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
